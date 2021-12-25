@@ -8,7 +8,10 @@ import { AppStateProvider } from './contexts/AppState'
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppStateProvider reducer={appReducers} initialState={initialState}>
+    <AppStateProvider
+      reducer={appReducers}
+      initialState={initialState}
+    >
       <App />
     </AppStateProvider>
   </React.StrictMode>,
