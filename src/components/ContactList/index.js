@@ -6,11 +6,13 @@ export default function ContactList() {
     const [state, dispatch] = useAppState()
     const { getContactResult, getContactLoading, getContactError, deleteContactResult } = state
 
+    // load page (first)
     useEffect(() => {
         // console.log('init state', state)
         getContactList(dispatch)
     }, [dispatch])
 
+    // delete 
     useEffect(() => {
         // console.log('del state', state)
         if (deleteContactResult) { getContactList(dispatch) }

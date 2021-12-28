@@ -54,10 +54,9 @@ const contact = (state, action) => {
                 detailContactResult: action.payload.data
             }
 
-        default:
-            // console.log('4. reducer / default', action);
-            return state
-            break;
+        // default:
+        //     // console.log('4. reducer / default', action);
+        //     return { state }
     }
 }
 
