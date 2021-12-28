@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react'
+import { deleteContact, getContactList } from '../../actions/contactAction'
 import { useAppState } from '../../contexts/AppState'
-import { getContactList } from '../../actions/contactAction'
 
 export default function ContactList() {
     const [state, dispatch] = useAppState()
-    const { getContactResult, getContactLoading, getContactError } = state
+    const { getContactResult, getContactLoading, getContactError, deleteContactResult } = state
 
     useEffect(() => {
-        console.log('1. contact list (useEffect)')
-
-        console.log('state compo')
-        console.log(state)
-
+        console.log('init state', state)
         getContactList(dispatch)
     }, [dispatch])
+
+    useEffect(() => {
+        console.log('del state', state)
+        if (deleteContactResult) { getContactList(dispatch) }
+    }, [dispatch, deleteContactResult])
 
     return (
         <div>
@@ -21,7 +22,13 @@ export default function ContactList() {
             {
                 getContactResult ? (
                     getContactResult.map((contact) => (
-                        <p key={contact.id}>{contact.name} ({contact.phone})</p>)
+                        <p
+                            key={contact.id}
+                        >
+                            {contact.name} ({contact.phone})
+                            <button onClick={() => deleteContact(dispatch, contact.id)}>delete</button>
+                        </p>
+                    )
                     )) : getContactLoading ? (
                         <p>Loading ....</p>
                     ) : (getContactError ? getContactError :

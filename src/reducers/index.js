@@ -1,9 +1,20 @@
 import contactReducer from "./contact"
 
 const initialState = {
+    // list 
     getContactResult: false,
     getContactLoading: false,
     getContactError: false,
+    
+    // add
+    addContactResult: false,
+    addContactLoading: false,
+    addContactError: false,
+
+    // delete
+    deleteContactResult: false,
+    deleteContactLoading: false,
+    deleteContactError: false,
 }
 
 // console.log(contactReducer)    
