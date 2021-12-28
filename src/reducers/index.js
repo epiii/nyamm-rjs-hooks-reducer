@@ -15,6 +15,14 @@ const initialState = {
     deleteContactResult: false,
     deleteContactLoading: false,
     deleteContactError: false,
+
+    // update
+    updateContactResult: false,
+    updateContactLoading: false,
+    updateContactError: false,
+
+    // detail
+    detailContactResult: false,
 }
 
 // console.log(contactReducer)    

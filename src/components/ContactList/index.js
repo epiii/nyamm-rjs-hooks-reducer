@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { deleteContact, getContactList } from '../../actions/contactAction'
+import React, {  useEffect } from 'react'
+import { deleteContact, detailContact, getContactList } from '../../actions/contactAction'
 import { useAppState } from '../../contexts/AppState'
 
 export default function ContactList() {
@@ -7,12 +7,12 @@ export default function ContactList() {
     const { getContactResult, getContactLoading, getContactError, deleteContactResult } = state
 
     useEffect(() => {
-        console.log('init state', state)
+        // console.log('init state', state)
         getContactList(dispatch)
     }, [dispatch])
 
     useEffect(() => {
-        console.log('del state', state)
+        // console.log('del state', state)
         if (deleteContactResult) { getContactList(dispatch) }
     }, [dispatch, deleteContactResult])
 
@@ -26,6 +26,7 @@ export default function ContactList() {
                             key={contact.id}
                         >
                             {contact.name} ({contact.phone})
+                            <button style={{ margin: 5 }} onClick={() => detailContact(dispatch, contact)}>edit</button>
                             <button onClick={() => deleteContact(dispatch, contact.id)}>delete</button>
                         </p>
                     )
