@@ -1,0 +1,3 @@
+deployment setting up
+-   netlify https://functions.netlify.com/playground/
+✅ json-server https://my-json-server.typicode.com/
