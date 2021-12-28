@@ -1,14 +1,13 @@
-
 import axios from 'axios'
 export const GET_CONTACT_LIST = "GET_CONTACT_LIST"
 export const ADD_CONTACT = "ADD_CONTACT"
 export const DELETE_CONTACT = "DELETE_CONTACT"
 export const DETAIL_CONTACT = "DETAIL_CONTACT"
 export const UPDATE_CONTACT = "UPDATE_CONTACT"
-const BASE_URL_DEV = "http://localhost:3000"
-const BASE_URL_PROD = "https://my-json-server.typicode.com/epiii/nyamm-contact-api"
+// const BASE_URL_DEV = "http://localhost:3000"
+const BASE_URL = "https://my-json-server.typicode.com/epiii/nyamm-contact-api"
 const END_POINT = '/contacts/'
-const API = BASE_URL_PROD + END_POINT
+const API = BASE_URL + END_POINT
 
 export const getContactList = (dispatch) => {
     // console.log('2. action / getContactList', dispatch);
