@@ -5,6 +5,10 @@ export const ADD_CONTACT = "ADD_CONTACT"
 export const DELETE_CONTACT = "DELETE_CONTACT"
 export const DETAIL_CONTACT = "DETAIL_CONTACT"
 export const UPDATE_CONTACT = "UPDATE_CONTACT"
+const BASE_URL_DEV = "http://localhost:3000"
+const BASE_URL_PROD = "https://my-json-server.typicode.com/epiii/nyamm-contact-api"
+const END_POINT = '/contacts/'
+const API = BASE_URL_PROD + END_POINT
 
 export const getContactList = (dispatch) => {
     // console.log('2. action / getContactList', dispatch);
@@ -20,7 +24,7 @@ export const getContactList = (dispatch) => {
 
     axios({
         method: 'GET',
-        url: 'http://localhost:3000/contacts',
+        url: API,
         timeout: 100000,
     })
         .then((response) => {
@@ -61,7 +65,7 @@ export const addContact = (dispatch, data) => {
 
     axios({
         method: 'POST',
-        url: 'http://localhost:3000/contacts',
+        url: API,
         timeout: 100000,
         data: data,
     })
@@ -103,7 +107,7 @@ export const deleteContact = (dispatch, id) => {
 
     axios({
         method: 'DELETE',
-        url: 'http://localhost:3000/contacts/' + id,
+        url: API + id,
         timeout: 100000,
         data: id,
     })
@@ -155,7 +159,7 @@ export const updateContact = (dispatch, data) => {
 
     axios({
         method: 'PUT',
-        url: 'http://localhost:3000/contacts/' + data.id,
+        url: API + data.id,
         timeout: 100000,
         data: data,
     })
